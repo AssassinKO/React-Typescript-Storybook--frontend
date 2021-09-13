@@ -1,0 +1,5 @@
+{
+  "defaultLanguage": "nl",
+  "supportedLanguages": ["nl", "en", "fr"],
+  "languageDetection": true
+}

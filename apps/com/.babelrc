@@ -1,0 +1,13 @@
+{
+  "presets": ["@nrwl/next/babel"],
+  "plugins": [
+    [
+      "styled-components",
+      {
+        "pure": true,
+        "displayName": true,
+        "ssr": true
+      }
+    ]
+  ]
+}

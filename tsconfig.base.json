@@ -1,0 +1,92 @@
+{
+  "compileOnSave": false,
+  "compilerOptions": {
+    "rootDir": ".",
+    "sourceMap": true,
+    "declaration": false,
+    "moduleResolution": "node",
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "importHelpers": true,
+    "target": "es2015",
+    "module": "esnext",
+    "lib": ["es2017", "dom"],
+    "skipLibCheck": true,
+    "skipDefaultLibCheck": true,
+    "baseUrl": ".",
+    "resolveJsonModule": true,
+    "paths": {
+      "@homeproved/shared/ui": ["libs/shared/ui/src/index.ts"],
+      "@homeproved/shared/shell": ["libs/shared/shell/src/index.ts"],
+      "@homeproved/com/shell": ["libs/com/shell/src/index.ts"],
+      "@homeproved/pro/shell": ["libs/pro/shell/src/index.ts"],
+      "@homeproved/shared/data-access": ["libs/shared/data-access/src/index.ts"],
+      "@homeproved/shared/feature-i18n": ["libs/shared/feature-i18n/src/index.ts"],
+      "@homeproved/com/feature-localized-routes": [
+        "libs/com/feature-localized-routes/src/index.ts"
+      ],
+      "@homeproved/shared/feature-localized-routes": [
+        "libs/shared/feature-localized-routes/src/index.ts"
+      ],
+      "@homeproved/pro/feature-localized-routes": [
+        "libs/pro/feature-localized-routes/src/index.ts"
+      ],
+      "@homeproved/shared/feature-language-switcher": [
+        "libs/shared/feature-language-switcher/src/index.ts"
+      ],
+      "@homeproved/com/feature-basic-pages": ["libs/com/feature-basic-pages/src/index.ts"],
+      "@homeproved/shared/feature-auth": ["libs/shared/feature-auth/src/index.ts"],
+      "@homeproved/pro/feature-login": ["libs/pro/feature-login/src/index.ts"],
+      "@homeproved/shared/util": ["libs/shared/util/src/index.ts"],
+      "@homeproved/pro/ui": ["libs/pro/ui/src/index.ts"],
+      "@homeproved/pro/feature-password-forgotten": [
+        "libs/pro/feature-password-forgotten/src/index.ts"
+      ],
+      "@homeproved/pro/feature-password-reset": ["libs/pro/feature-password-reset/src/index.ts"],
+      "@homeproved/com/feature-homepage": ["libs/com/feature-homepage/src/index.ts"],
+      "@homeproved/pro/feature-homepage": ["libs/pro/feature-homepage/src/index.ts"],
+      "@homeproved/shared-feature-auth-codana": ["libs/shared/feature-auth-codana/src/index.ts"],
+      "@homeproved/pro/feature-dashboard-shell": ["libs/pro/feature-dashboard-shell/src/index.ts"],
+      "@homeproved/com/feature-header": ["libs/com/feature-header/src/index.ts"],
+      "@homeproved/com/feature-page-shell": ["libs/com/feature-page-shell/src/index.ts"],
+      "@homeproved/shared/feature-realizations": ["libs/shared/feature-realizations/src/index.ts"],
+      "@homeproved/com/feature-company": ["libs/com/feature-company/src/index.ts"],
+      "@homeproved/pro/feature-company": ["libs/pro/feature-company/src/index.ts"],
+      "@homeproved/shared/feature-sectors": ["libs/shared/feature-sectors/src/index.ts"],
+      "@homeproved/com/feature-contact": ["libs/com/feature-contact/src/index.ts"],
+      "@homeproved/com/feature-vacatures": ["libs/com/feature-vacatures/src/index.ts"],
+      "@homeproved/pro/feature-header": ["libs/pro/feature-header/src/index.ts"],
+      "@homeproved/pro/feature-brochure": ["libs/pro/feature-brochure/src/index.ts"],
+      "@homeproved/com/feature-report-issue": ["libs/com/feature-report-issue/src/index.ts"],
+      "@homeproved/pro/feature-plans": ["libs/pro/feature-plans/src/index.ts"],
+      "@homeproved/pro/feature-footer": ["libs/pro/feature-footer/src/index.ts"],
+      "@homeproved/com/feature-footer": ["libs/com/feature-footer/src/index.ts"],
+      "@homeproved/pro/feature-registration": ["libs/pro/feature-registration/src/index.ts"],
+      "@homeproved/pro/feature-page-shell": ["libs/pro/feature-page-shell/src/index.ts"],
+      "@homeproved/shared/feature-company": ["libs/shared/feature-company/src/index.ts"],
+      "@homeproved/shared/feature-forms": ["libs/shared/feature-forms/src/index.ts"],
+      "@homeproved/com/feature-search": ["libs/com/feature-search/src/index.ts"],
+      "@homeproved/com/feature-company-search": ["libs/com/feature-company-search/src/index.ts"],
+      "@homeproved/shared/feature-active-campaign": [
+        "libs/shared/feature-active-campaign/src/index.ts"
+      ],
+      "@homeproved/shared/feature-company-search": [
+        "libs/shared/feature-company-search/src/index.ts"
+      ],
+      "@homeproved/shared/feature-reviews": ["libs/shared/feature-reviews/src/index.ts"],
+      "@homeproved/pro/feature-company-dashboard": [
+        "libs/pro/feature-company-dashboard/src/index.ts"
+      ],
+      "@homeproved/shared/feature-algolia": ["libs/shared/feature-algolia/src/index.ts"],
+      "@homeproved/com/feature-sitemap": ["libs/com/feature-sitemap/src/index.ts"],
+      "@homeproved/shared/feature-ratings": ["libs/shared/feature-ratings/src/index.ts"],
+      "@homeproved/com/feature-articles": ["libs/com/feature-articles/src/index.ts"],
+      "@homeproved/pro/feature-employees": ["libs/pro/feature-employees/src/index.ts"],
+      "@homeproved/pro/feature-social-share": ["libs/pro/feature-social-share/src/index.ts"],
+      "@homeproved/pro/feature-invitation": ["libs/pro/feature-invitation/src/index.ts"],
+      "@homeproved/shared/feature-newsletter": ["libs/shared/feature-newsletter/src/index.ts"],
+      "@homeproved/shared/feature-impersonate": ["libs/shared/feature-impersonate/src/index.ts"]
+    }
+  },
+  "exclude": ["node_modules", "tmp"]
+}

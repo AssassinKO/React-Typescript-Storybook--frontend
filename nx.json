@@ -1,0 +1,195 @@
+{
+  "implicitDependencies": {
+    "workspace.json": "*",
+    "package.json": {
+      "dependencies": "*",
+      "devDependencies": "*"
+    },
+    "tsconfig.base.json": "*",
+    "tslint.json": "*",
+    ".eslintrc.json": "*",
+    "nx.json": "*"
+  },
+  "affected": {
+    "defaultBase": "master"
+  },
+  "npmScope": "homeproved",
+  "tasksRunnerOptions": {
+    "default": {
+      "runner": "@nrwl/workspace/tasks-runners/default",
+      "options": {
+        "cacheableOperations": ["build", "lint", "test", "e2e", "build-storybook"]
+      }
+    }
+  },
+  "projects": {
+    "com": {
+      "tags": ["scope:app"]
+    },
+    "pro": {
+      "tags": ["scope:app"]
+    },
+    "shared-ui": {
+      "tags": ["scope:shared", "type:ui"]
+    },
+    "shared-shell": {
+      "tags": ["scope:shared", "type:shell"]
+    },
+    "com-shell": {
+      "tags": ["scope:app-lib", "type:shell"]
+    },
+    "pro-shell": {
+      "tags": ["scope:app-lib", "type:shell"]
+    },
+    "shared-data-access": {
+      "tags": ["scope:shared", "type:data-access"]
+    },
+    "shared-feature-i18n": {
+      "tags": ["scope:shared", "type:feature"]
+    },
+    "shared-feature-localized-routes": {
+      "tags": ["scope:shared", "type:feature"]
+    },
+    "com-feature-localized-routes": {
+      "tags": ["scope:app-lib", "type:feature"]
+    },
+    "pro-feature-localized-routes": {
+      "tags": ["scope:app-lib", "type:feature"]
+    },
+    "shared-feature-language-switcher": {
+      "tags": ["scope:shared", "type:feature"]
+    },
+    "com-feature-basic-pages": {
+      "tags": ["scope:app-lib", "type:feature"]
+    },
+    "shared-feature-auth": {
+      "tags": ["scope:shared", "type:feature"]
+    },
+    "pro-feature-login": {
+      "tags": ["scope:app-lib", "type:feature"]
+    },
+    "shared-util": {
+      "tags": ["scope:shared", "type:util"]
+    },
+    "pro-ui": {
+      "tags": ["scope:app-lib", "type:ui"]
+    },
+    "pro-feature-password-forgotten": {
+      "tags": ["scope:app-lib", "type:feature"]
+    },
+    "pro-feature-password-reset": {
+      "tags": ["scope:app-lib", "type:feature"]
+    },
+    "pro-feature-homepage": {
+      "tags": ["scope:app-lib", "type:feature"]
+    },
+    "com-feature-homepage": {
+      "tags": ["scope:app-lib", "type:feature"]
+    },
+    "shared-feature-auth-codana": {
+      "tags": ["scope:shared", "type:feature"]
+    },
+    "pro-feature-dashboard-shell": {
+      "tags": ["scope:app-lib", "type:feature"]
+    },
+    "com-feature-header": {
+      "tags": ["scope:app-lib", "type:feature"]
+    },
+    "com-feature-page-shell": {
+      "tags": ["scope:app-lib", "type:feature"]
+    },
+    "shared-feature-realizations": {
+      "tags": ["scope:shared", "type:feature"]
+    },
+    "com-feature-company": {
+      "tags": ["scope:app-lib", "type:feature"]
+    },
+    "com-feature-report-issue": {
+      "tags": ["scope:app-lib", "type:feature"]
+    },
+    "shared-feature-sectors": {
+      "tags": ["scope:shared", "type:feature"]
+    },
+    "com-feature-contact": {
+      "tags": ["scope:app-lib", "type:feature"]
+    },
+    "com-feature-vacatures": {
+      "tags": ["scope:app-lib", "type:feature"]
+    },
+    "pro-feature-header": {
+      "tags": ["scope:app-lib", "type:feature"]
+    },
+    "pro-feature-plans": {
+      "tags": ["scope:app-lib", "type:feature"]
+    },
+    "shared-feature-forms": {
+      "tags": ["scope:shared", "type:feature"]
+    },
+    "pro-feature-brochure": {
+      "tags": ["scope:app-lib", "type:feature"]
+    },
+    "pro-feature-company": {
+      "tags": ["scope:app-lib", "type:feature"]
+    },
+    "pro-feature-footer": {
+      "tags": ["scope:app-lib", "type:feature"]
+    },
+    "com-feature-footer": {
+      "tags": ["scope:app-lib", "type:feature"]
+    },
+    "pro-feature-registration": {
+      "tags": ["scope:app-lib", "type:feature"]
+    },
+    "pro-feature-page-shell": {
+      "tags": ["scope:app-lib", "type:feature"]
+    },
+    "shared-feature-company": {
+      "tags": ["scope:shared", "type:feature"]
+    },
+    "com-feature-search": {
+      "tags": ["scope:app-lib", "type:feature"]
+    },
+    "com-feature-company-search": {
+      "tags": ["scope:app-lib", "type:feature"]
+    },
+    "shared-feature-active-campaign": {
+      "tags": ["scope:shared", "type:feature"]
+    },
+    "shared-feature-company-search": {
+      "tags": ["scope:shared", "type:feature"]
+    },
+    "shared-feature-reviews": {
+      "tags": ["scope:shared", "type:feature"]
+    },
+    "pro-feature-company-dashboard": {
+      "tags": ["scope:app-lib", "type:feature"]
+    },
+    "shared-feature-algolia": {
+      "tags": ["scope:shared", "type:feature"]
+    },
+    "com-feature-sitemap": {
+      "tags": ["scope:app-lib", "type:feature"]
+    },
+    "shared-feature-ratings": {
+      "tags": ["scope:shared", "type:feature"]
+    },
+    "com-feature-articles": {
+      "tags": ["scope:app-lib", "type:feature"]
+    },
+    "pro-feature-employees": {
+      "tags": ["scope:app-lib", "type:feature"]
+    },
+    "pro-feature-social-share": {
+      "tags": ["scope:app-lib", "type:feature"]
+    },
+    "pro-feature-invitation": {
+      "tags": ["scope:app-lib", "type:feature"]
+    },
+    "shared-feature-newsletter": {
+      "tags": ["scope:shared", "type:feature"]
+    },
+    "shared-feature-impersonate": {
+      "tags": ["scope:shared", "type:feature"]
+    }
+  }
+}

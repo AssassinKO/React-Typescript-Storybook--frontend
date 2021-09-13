@@ -1,0 +1,102 @@
+[
+  { "source": "/fr", "destination": "/", "locale": false },
+  { "source": "/fr/conditions-service", "destination": "/terms-of-service", "locale": false },
+  { "source": "/fr/secteurs", "destination": "/sectors", "locale": false },
+  { "source": "/fr/cookies", "destination": "/cookies", "locale": false },
+  { "source": "/fr/contact", "destination": "/contact", "locale": false },
+  { "source": "/fr/emploi", "destination": "/jobs", "locale": false },
+  { "source": "/fr/emploi/:slug", "destination": "/jobs/:slug", "locale": false },
+  { "source": "/fr/sur-nous", "destination": "/about", "locale": false },
+  { "source": "/fr/conseils-juridiques", "destination": "/legal-advice", "locale": false },
+  { "source": "/fr/politique-confidentialite", "destination": "/privacy", "locale": false },
+  { "source": "/fr/faq", "destination": "/faq", "locale": false },
+  { "source": "/fr/politique-evaluation", "destination": "/assessment-policy", "locale": false },
+  { "source": "/fr/conditions-utilisation", "destination": "/terms-of-use", "locale": false },
+  { "source": "/fr/ecrire-reviews", "destination": "/write-review", "locale": false },
+  { "source": "/fr/ecrire-reviews/:slug", "destination": "/write-review/:slug", "locale": false },
+  {
+    "source": "/fr/ecrire-reviews/:slug/merci",
+    "destination": "/write-review/:slug/thanks",
+    "locale": false
+  },
+  { "source": "/fr/realisations", "destination": "/realizations", "locale": false },
+  { "source": "/fr/ajouter-entreprise", "destination": "/add-company", "locale": false },
+  {
+    "source": "/fr/ajouter-entreprise/merci",
+    "destination": "/add-company/confirmation",
+    "locale": false
+  },
+  { "source": "/fr/entreprise", "destination": "/company", "locale": false },
+  { "source": "/fr/entreprise/:slug", "destination": "/company/:slug", "locale": false },
+  {
+    "source": "/fr/entreprise/:slug/reviews",
+    "destination": "/company/:slug/reviews",
+    "locale": false
+  },
+  {
+    "source": "/fr/entreprise/:slug/reviews/:rid",
+    "destination": "/company/:slug/review/:rid",
+    "locale": false
+  },
+  {
+    "source": "/fr/entreprise/:slug/about",
+    "destination": "/company/:slug/about",
+    "locale": false
+  },
+  {
+    "source": "/fr/entreprise/:slug/realizations",
+    "destination": "/company/:slug/realizations",
+    "locale": false
+  },
+  {
+    "source": "/fr/entreprise/:slug/realisations/:rslug",
+    "destination": "/company/:slug/realization/:rslug",
+    "locale": false
+  },
+  {
+    "source": "/fr/entreprise/:slug/contact",
+    "destination": "/company/:slug/contact",
+    "locale": false
+  },
+  { "source": "/fr/recherche-entreprise", "destination": "/company-search", "locale": false },
+  {
+    "source": "/fr/secteurs/:sector/:subsector",
+    "destination": "/sectors/:sector/:subsector",
+    "locale": false
+  },
+  {
+    "source": "/fr/localite/:locality/:sector",
+    "destination": "/locality/:locality/:sector",
+    "locale": false
+  },
+  {
+    "source": "/fr/conseil-logement",
+    "destination": "/housing-advice",
+    "locale": false
+  },
+  {
+    "source": "/fr/conseil-logement/secteurs/:sector",
+    "destination": "/housing-advice/sectors/:sector",
+    "locale": false
+  },
+  {
+    "source": "/fr/realisations",
+    "destination": "/realizations",
+    "locale": false
+  },
+  {
+    "source": "/fr/realisations/secteurs/:sector",
+    "destination": "/realizations/sectors/:sector",
+    "locale": false
+  },
+  {
+    "source": "/fr/conseil-logement/articles/:article",
+    "destination": "/housing-advice/articles/:article",
+    "locale": false
+  },
+  {
+    "source": "/fr/conseil-logement/aperçu/:uid",
+    "destination": "/housing-advice/preview/:uid",
+    "locale": false
+  }
+]

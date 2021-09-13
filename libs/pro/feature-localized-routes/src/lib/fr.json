@@ -1,0 +1,51 @@
+[
+  { "source": "/fr", "destination": "/", "locale": false },
+  { "source": "/fr/terms-of-service", "destination": "/terms-of-service", "locale": false },
+  { "source": "/fr/privacy", "destination": "/privacy", "locale": false },
+  { "source": "/fr/cookies", "destination": "/cookies", "locale": false },
+  { "source": "/fr/about", "destination": "/about", "locale": false },
+  { "source": "/fr/contact", "destination": "/contact", "locale": false },
+  {
+    "source": "/fr/reviews/",
+    "destination": "/reviews",
+    "locale": false
+  },
+  {
+    "source": "/fr/reviews/:id",
+    "destination": "/reviews/:id",
+    "locale": false
+  },
+  {
+    "source": "/nl/scores",
+    "destination": "/rating",
+    "locale": false
+  },
+  { "source": "/fr/profile-entreprise", "destination": "/profile", "locale": false },
+  { "source": "/fr/realisations", "destination": "/realizations", "locale": false },
+  { "source": "/fr/add-realization", "destination": "/add-realization", "locale": false },
+  { "source": "/fr/login", "destination": "/login", "locale": false },
+  { "source": "/fr/mot-de-passe-oublie", "destination": "/password-forgotten", "locale": false },
+  {
+    "source": "/fr/nouvelle-mot-de-passe/:token*",
+    "destination": "/password-reset/:token*",
+    "locale": false
+  },
+  { "source": "/fr/enregistrement/etappe1", "destination": "/registration/step1", "locale": false },
+  { "source": "/fr/enregistrement/etappe2", "destination": "/registration/step2", "locale": false },
+  {
+    "source": "/fr/enregistrement/verification-email",
+    "destination": "/registration/verify-email",
+    "locale": false
+  },
+  { "source": "/fr/enregistrement/merci", "destination": "/registration/thanks", "locale": false },
+  { "source": "/fr/employes", "destination": "/employees", "locale": false },
+  { "source": "/fr/my-account", "destination": "/my-account", "locale": false },
+  { "source": "/fr/invitation", "destination": "/invitation", "locale": false },
+  { "source": "/fr/dashboard", "destination": "/dashboard", "locale": false },
+  {
+    "source": "/fr/nouvel-employe/:token*",
+    "destination": "/new-employee/:token*",
+    "locale": false
+  },
+  { "source": "/fr/partager-medias-sociaux", "destination": "/social-share", "locale": false }
+]

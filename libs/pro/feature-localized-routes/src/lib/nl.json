@@ -1,0 +1,60 @@
+[
+  { "source": "/nl", "destination": "/", "locale": false },
+  { "source": "/nl/brochure", "destination": "/brochure", "locale": false },
+  { "source": "/nl/cookies", "destination": "/cookies", "locale": false },
+  { "source": "/nl/about", "destination": "/about", "locale": false },
+  { "source": "/nl/contact", "destination": "/contact", "locale": false },
+  {
+    "source": "/nl/reviews/",
+    "destination": "/reviews",
+    "locale": false
+  },
+  {
+    "source": "/nl/reviews/:id",
+    "destination": "/reviews/:id",
+    "locale": false
+  },
+  {
+    "source": "/nl/scores",
+    "destination": "/rating",
+    "locale": false
+  },
+  { "source": "/nl/bedrijfsprofiel", "destination": "/profile", "locale": false },
+  { "source": "/nl/realisaties", "destination": "/realizations", "locale": false },
+  { "source": "/nl/login", "destination": "/login", "locale": false },
+  { "source": "/nl/wachtwoord-vergeten", "destination": "/password-forgotten", "locale": false },
+  {
+    "source": "/nl/wachtwoord-vernieuwen/:token*",
+    "destination": "/password-reset/:token*",
+    "locale": false
+  },
+  { "source": "/nl/realisatie-toevoegen", "destination": "/add-realization", "locale": false },
+  {
+    "source": "/nl/realisatie-aanpassen/:id",
+    "destination": "/edit-realization/:id",
+    "locale": false
+  },
+  { "source": "/nl/registratie/stap1", "destination": "/registration/step1", "locale": false },
+  { "source": "/nl/registratie/stap2", "destination": "/registration/step2", "locale": false },
+  {
+    "source": "/nl/registratie/email-verificatie/:id/:hash",
+    "destination": "/registration/verify-email/:id/:hash",
+    "locale": false
+  },
+  { "source": "/nl/registratie/bedankt", "destination": "/registration/thanks", "locale": false },
+  { "source": "/nl/dashboard", "destination": "/dashboard", "locale": false },
+  { "source": "/nl/medewerkers", "destination": "/employees", "locale": false },
+  { "source": "/nl/mijn-account", "destination": "/my-account", "locale": false },
+  { "source": "/nl/emailuitnodiging", "destination": "/invitation", "locale": false },
+  {
+    "source": "/nl/nieuwe-medewerker/:token*",
+    "destination": "/new-employee/:token*",
+    "locale": false
+  },
+  { "source": "/nl/delen-sociale-media", "destination": "/social-share", "locale": false },
+  {
+    "source": "/nl/impersonate/:token",
+    "destination": "/impersonate/:token",
+    "locale": false
+  }
+]

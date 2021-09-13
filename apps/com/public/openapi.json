@@ -1,0 +1,1647 @@
+{
+  "openapi": "3.0.2",
+  "info": { "title": "Homeproved", "version": "1.0.0" },
+  "servers": [{ "url": "https://api.staging.homeproved.scalecity.space" }],
+  "paths": {
+    "/api/auth/login": {
+      "post": {
+        "tags": ["users"],
+        "summary": "Login",
+        "requestBody": {
+          "description": "Login Data",
+          "content": {
+            "application/json": { "schema": { "$ref": "#/components/schemas/LoginRequest" } }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/Token" } }
+            }
+          }
+        }
+      }
+    },
+    "/api/auth/register": {
+      "post": {
+        "tags": ["users"],
+        "summary": "Register User",
+        "requestBody": {
+          "description": "Register Data",
+          "content": {
+            "application/json": { "schema": { "$ref": "#/components/schemas/RegisterRequest" } }
+          }
+        },
+        "responses": { "201": { "description": "OK" } }
+      }
+    },
+    "/api/auth/forgot-password": {
+      "post": {
+        "tags": ["users"],
+        "summary": "Forgot password.",
+        "requestBody": {
+          "description": "Register Data",
+          "content": {
+            "application/json": {
+              "schema": { "$ref": "#/components/schemas/ForgotPasswordRequest" }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "message response",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/Message" } }
+            }
+          }
+        }
+      }
+    },
+    "/api/auth/reset-password": {
+      "post": {
+        "tags": ["users"],
+        "summary": "Reset password",
+        "requestBody": {
+          "description": "Reset Password",
+          "content": {
+            "application/json": {
+              "schema": { "$ref": "#/components/schemas/ResetPasswordRequest" }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "message response",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/Message" } }
+            }
+          }
+        }
+      }
+    },
+    "/api/auth/email/verify/{id}/{hash}": {
+      "get": {
+        "tags": ["users"],
+        "summary": "Email verification.",
+        "parameters": [
+          { "name": "id", "in": "path", "required": true, "schema": { "type": "string" } },
+          { "name": "hash", "in": "path", "required": true, "schema": { "type": "string" } }
+        ],
+        "responses": { "200": { "description": "OK" } }
+      }
+    },
+    "/api/auth/phone/verify": {
+      "post": {
+        "tags": ["users"],
+        "summary": "Verify phone",
+        "requestBody": {
+          "description": "Verify phone",
+          "content": {
+            "application/json": { "schema": { "$ref": "#/components/schemas/CodeVerification" } }
+          }
+        },
+        "responses": { "200": { "description": "OK" } }
+      }
+    },
+    "/api/auth/phone/verification-notification": {
+      "post": {
+        "tags": ["users"],
+        "summary": "Resend phone verification.",
+        "requestBody": {
+          "description": "Verify email",
+          "content": {
+            "application/json": {
+              "schema": { "type": "object", "properties": { "email": { "type": "string" } } }
+            }
+          }
+        },
+        "responses": { "200": { "description": "OK" } }
+      }
+    },
+    "/api/auth/email/verification-notification": {
+      "post": {
+        "tags": ["users"],
+        "summary": "Resend email verification.",
+        "requestBody": {
+          "description": "Verify email",
+          "content": {
+            "application/json": {
+              "schema": { "type": "object", "properties": { "email": { "type": "string" } } }
+            }
+          }
+        },
+        "responses": { "200": { "description": "OK" } }
+      }
+    },
+    "/api/auth/register-company": {
+      "post": {
+        "tags": ["companies"],
+        "summary": "Register Company",
+        "requestBody": {
+          "description": "Company Register Data",
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "planId": { "type": "integer" },
+                  "vat": { "type": "string" },
+                  "name": { "type": "string" },
+                  "street": { "type": "string" },
+                  "streetNr": { "type": "string" },
+                  "postalCode": { "type": "string" },
+                  "city": { "type": "string" },
+                  "country": { "default": "BE", "type": "string", "maxLength": 2, "minLength": 2 },
+                  "latitude": { "type": "number", "nullable": true },
+                  "longitude": { "type": "number", "nullable": true },
+                  "email": { "format": "email", "type": "string", "nullable": true },
+                  "phone": { "type": "string", "nullable": true },
+                  "url": { "type": "string" },
+                  "userEmail": { "format": "email", "type": "string" },
+                  "userPassword": { "type": "string" },
+                  "userPasswordConfirmation": { "type": "string" },
+                  "userFirstName": { "type": "string" },
+                  "userLastName": { "type": "string" },
+                  "mobile": { "type": "string", "nullable": true },
+                  "billingName": { "type": "string", "nullable": true },
+                  "billingVat": { "type": "string" },
+                  "billingStreet": { "type": "string" },
+                  "billingStreetNr": { "type": "string" },
+                  "billingPostalCode": { "type": "string" },
+                  "billingCity": { "type": "string" },
+                  "billingCountry": {
+                    "default": "BE",
+                    "type": "string",
+                    "maxLength": 2,
+                    "minLength": 2
+                  },
+                  "billingEmail": { "type": "string" },
+                  "billingPhone": { "type": "string", "nullable": true },
+                  "sectorIds": { "type": "array", "items": { "type": "integer" }, "nullable": true }
+                }
+              }
+            }
+          }
+        },
+        "responses": { "201": { "description": "OK" } }
+      }
+    },
+    "/api/auth/logout": {
+      "post": {
+        "tags": ["users"],
+        "summary": "Logout",
+        "responses": {
+          "200": {
+            "description": "message response",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/Message" } }
+            }
+          }
+        }
+      }
+    },
+    "/api/auth/refresh": {
+      "post": {
+        "tags": ["users"],
+        "summary": "Refresh token",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/Token" } }
+            }
+          }
+        }
+      }
+    },
+    "/api/auth/me": {
+      "get": {
+        "tags": ["users"],
+        "summary": "Me",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/User" } } }
+          }
+        }
+      }
+    },
+    "/api/basic-page/{basicPage}": {
+      "get": {
+        "tags": ["pages"],
+        "summary": "get a basic page.",
+        "parameters": [
+          { "name": "basicPage", "in": "path", "required": true, "schema": { "type": "string" } }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/BasicPage" } }
+            }
+          }
+        }
+      }
+    },
+    "/api/job-page": {
+      "get": {
+        "tags": ["jobs"],
+        "summary": "List jobs.",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "data": { "type": "array", "items": { "$ref": "#/components/schemas/JobPage" } }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/job-page/{jobPage}": {
+      "get": {
+        "tags": ["jobs"],
+        "summary": "Get a job.",
+        "parameters": [
+          { "name": "jobPage", "in": "path", "required": true, "schema": { "type": "string" } }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/JobPage" } }
+            }
+          }
+        }
+      }
+    },
+    "/api/labels": {
+      "get": {
+        "tags": ["common"],
+        "summary": "labels",
+        "responses": { "200": { "description": "OK" } }
+      }
+    },
+    "/api/media/{media}/{filename}": {
+      "get": {
+        "tags": ["media"],
+        "summary": "Get media by id & filename",
+        "parameters": [
+          { "name": "media", "in": "path", "required": true, "schema": { "type": "string" } },
+          { "name": "filename", "in": "path", "required": true, "schema": { "type": "string" } }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/MediaResponse" } }
+            }
+          }
+        }
+      }
+    },
+    "/api/file": {
+      "post": {
+        "tags": ["media"],
+        "summary": "Upload a file",
+        "requestBody": {
+          "content": {
+            "application/json": { "schema": { "$ref": "#/components/schemas/fileCreation" } }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/MediaResponse" } }
+            }
+          }
+        }
+      }
+    },
+    "/api/image-upload/{modelId}": {
+      "post": {
+        "tags": ["media"],
+        "summary": "Upload image for an entity.",
+        "parameters": [
+          { "name": "modelId", "in": "path", "required": true, "schema": { "type": "integer" } }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": { "schema": { "$ref": "#/components/schemas/ImageCreation" } }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/MediaResponse" } }
+            }
+          }
+        }
+      }
+    },
+    "/api/mark-as-read": {
+      "post": {
+        "tags": ["common"],
+        "summary": "Mark an entity as read.",
+        "requestBody": {
+          "content": {
+            "application/json": { "schema": { "$ref": "#/components/schemas/UserHasReadSchema" } }
+          }
+        },
+        "responses": { "200": { "description": "OK" } }
+      }
+    },
+    "/api/media/{media}": {
+      "delete": {
+        "tags": ["media"],
+        "summary": "Delete media by id",
+        "parameters": [
+          { "name": "media", "in": "path", "required": true, "schema": { "type": "string" } }
+        ],
+        "responses": { "200": { "description": "OK" } }
+      }
+    },
+    "/api/plans": {
+      "get": {
+        "tags": ["plans"],
+        "summary": "List all plans.",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "data": { "type": "array", "items": { "$ref": "#/components/schemas/Plan" } }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/plans/{plan}": {
+      "get": {
+        "tags": ["plans"],
+        "summary": "Get one plan.",
+        "parameters": [
+          { "name": "plan", "in": "path", "required": true, "schema": { "type": "string" } }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/Plan" } } }
+          }
+        }
+      }
+    },
+    "/api/realisation": {
+      "post": {
+        "tags": ["realisation"],
+        "summary": "Create realisation.",
+        "requestBody": {
+          "description": "Realisation data",
+          "content": {
+            "application/json": { "schema": { "$ref": "#/components/schemas/RealisationCreation" } }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/Realisation" } }
+            }
+          }
+        }
+      }
+    },
+    "/api/realisation/{realisation}": {
+      "patch": {
+        "tags": ["realisation"],
+        "summary": "Update a realisation",
+        "parameters": [
+          { "name": "realisation", "in": "path", "required": true, "schema": { "type": "string" } }
+        ],
+        "requestBody": {
+          "description": "Realisation data",
+          "content": {
+            "application/json": { "schema": { "$ref": "#/components/schemas/RealisationCreation" } }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/Realisation" } }
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": ["realisation"],
+        "summary": "Delete Realisation",
+        "parameters": [
+          { "name": "realisation", "in": "path", "required": true, "schema": { "type": "string" } }
+        ],
+        "responses": { "200": { "description": "OK" } }
+      },
+      "get": {
+        "tags": ["realisation"],
+        "summary": "Get a realisation",
+        "parameters": [
+          { "name": "realisation", "in": "path", "required": true, "schema": { "type": "string" } }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/Realisation" } }
+            }
+          }
+        }
+      }
+    },
+    "/api/review/latest": {
+      "get": {
+        "tags": ["reviews"],
+        "summary": "Get latest reviews",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "data": { "type": "array", "items": { "$ref": "#/components/schemas/Review" } }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/review": {
+      "post": {
+        "tags": ["reviews"],
+        "summary": "Create a review.",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "companyId": { "type": "number" },
+                  "title": { "type": "string" },
+                  "description": { "type": "string" },
+                  "rating": { "type": "number" },
+                  "screenName": { "type": "string" },
+                  "firstName": { "type": "string" },
+                  "lastName": { "type": "string" },
+                  "email": { "type": "string" },
+                  "pointsProConIds": { "type": "array", "items": { "type": "integer" } },
+                  "sectorIds": { "type": "array", "items": { "type": "integer" } },
+                  "images": {
+                    "type": "array",
+                    "items": { "type": "object", "properties": { "base64": { "type": "string" } } },
+                    "nullable": true
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/Review" } }
+            }
+          }
+        }
+      }
+    },
+    "/api/review/{review}/complaint": {
+      "post": {
+        "tags": ["reviews"],
+        "summary": "Create a complaint for a review.",
+        "parameters": [
+          { "name": "review", "in": "path", "required": true, "schema": { "type": "string" } }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": { "schema": { "$ref": "#/components/schemas/complaintRequest" } }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/Complaint" } }
+            }
+          }
+        }
+      }
+    },
+    "/api/review/{review}": {
+      "get": {
+        "tags": ["reviews"],
+        "summary": "Get review.",
+        "parameters": [
+          { "name": "review", "in": "path", "required": true, "schema": { "type": "string" } }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/Review" } }
+            }
+          }
+        }
+      }
+    },
+    "/api/review/{review}/verify": {
+      "post": {
+        "tags": ["reviews"],
+        "summary": "Verify review by code",
+        "parameters": [
+          { "name": "review", "in": "path", "required": true, "schema": { "type": "string" } }
+        ],
+        "requestBody": {
+          "description": "Verify phone",
+          "content": {
+            "application/json": { "schema": { "$ref": "#/components/schemas/CodeVerification" } }
+          }
+        },
+        "responses": { "200": { "description": "OK" } }
+      }
+    },
+    "/api/review/{review}/verification-notification": {
+      "post": {
+        "tags": ["reviews"],
+        "summary": "Resend email verification for review.",
+        "parameters": [
+          { "name": "review", "in": "path", "required": true, "schema": { "type": "string" } }
+        ],
+        "requestBody": {
+          "description": "Verify email",
+          "content": {
+            "application/json": {
+              "schema": { "type": "object", "properties": { "email": { "type": "string" } } }
+            }
+          }
+        },
+        "responses": { "200": { "description": "OK" } }
+      }
+    },
+    "/api/review/{review}/feedback": {
+      "post": {
+        "tags": ["reviews"],
+        "summary": "Create feedback for a review",
+        "parameters": [
+          { "name": "review", "in": "path", "required": true, "schema": { "type": "string" } }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": { "type": "object", "properties": { "message": { "type": "string" } } }
+            }
+          }
+        },
+        "responses": { "200": { "description": "OK" } }
+      }
+    },
+    "/api/review/{review}/favorite": {
+      "patch": {
+        "tags": ["reviews"],
+        "summary": "Mark/unmark a review as favorite",
+        "parameters": [
+          { "name": "review", "in": "path", "required": true, "schema": { "type": "string" } }
+        ],
+        "responses": { "200": { "description": "OK" } }
+      }
+    },
+    "/api/feedback/{feedback}": {
+      "patch": {
+        "tags": ["reviews"],
+        "summary": "Patch feedback for a review",
+        "parameters": [
+          { "name": "feedback", "in": "path", "required": true, "schema": { "type": "string" } }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": { "type": "object", "properties": { "message": { "type": "string" } } }
+            }
+          }
+        },
+        "responses": { "200": { "description": "OK" } }
+      }
+    },
+    "/api/pro-con-points": {
+      "post": {
+        "tags": ["reviews"],
+        "summary": "Create new pro or con point.",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "title": { "type": "string" },
+                  "type": { "description": "pro, con", "type": "string" }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/ProConPoint" } }
+            }
+          }
+        }
+      },
+      "get": {
+        "tags": ["reviews"],
+        "summary": "Get official procon list",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": { "$ref": "#/components/schemas/ProConPoint" }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/sector": {
+      "get": {
+        "tags": ["sectors"],
+        "summary": "List all the sectors",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "data": { "type": "array", "items": { "$ref": "#/components/schemas/Sector" } }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/sector/{uid}": {
+      "get": {
+        "tags": ["sectors"],
+        "summary": "Get a sector by slug or id",
+        "parameters": [
+          { "name": "uid", "in": "path", "required": true, "schema": { "type": "string" } }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/Sector" } }
+            }
+          }
+        }
+      }
+    },
+    "/api/sector/{sector}/couple": {
+      "patch": {
+        "tags": ["sectors"],
+        "summary": "Couple sectors",
+        "parameters": [
+          { "name": "sector", "in": "path", "required": true, "schema": { "type": "string" } }
+        ],
+        "requestBody": {
+          "description": "Couple Tags",
+          "content": {
+            "application/json": { "schema": { "$ref": "#/components/schemas/sectorCouple" } }
+          }
+        },
+        "responses": { "200": { "description": "OK" } }
+      }
+    },
+    "/api/sector/{sector}/decouple": {
+      "patch": {
+        "tags": ["sectors"],
+        "summary": "Decouple sectors",
+        "parameters": [
+          { "name": "sector", "in": "path", "required": true, "schema": { "type": "string" } }
+        ],
+        "requestBody": {
+          "description": "Couple Tags",
+          "content": {
+            "application/json": { "schema": { "$ref": "#/components/schemas/sectorCouple" } }
+          }
+        },
+        "responses": { "200": { "description": "OK" } }
+      }
+    },
+    "/api/companies/pro-dashboard": {
+      "get": {
+        "tags": ["companies"],
+        "summary": "Get data for pro dashboard.",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "data": {
+                      "type": "object",
+                      "properties": {
+                        "numberInvites": { "type": "integer" },
+                        "numberInvitesRemaining": { "type": "integer" },
+                        "numberRealisations": { "type": "integer" },
+                        "numberRealisationsRemaining": { "type": "integer" },
+                        "recentReviews": {
+                          "type": "array",
+                          "items": { "$ref": "#/components/schemas/Review" }
+                        },
+                        "trustManager": { "$ref": "#/components/schemas/User" }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/companies/{company}": {
+      "patch": {
+        "tags": ["companies"],
+        "summary": "Patch a company.",
+        "parameters": [
+          { "name": "company", "in": "path", "required": true, "schema": { "type": "string" } }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "name": { "type": "string" },
+                  "street": { "type": "string" },
+                  "streetNr": { "type": "string" },
+                  "postalCode": { "type": "string" },
+                  "city": { "type": "string" },
+                  "country": { "type": "string", "maxLength": 3, "minLength": 2 },
+                  "latitude": { "type": "number", "nullable": true },
+                  "longitude": { "type": "number", "nullable": true },
+                  "vat": { "type": "string", "nullable": true },
+                  "email": { "type": "string", "nullable": true },
+                  "phone": { "type": "string", "nullable": true },
+                  "mobile": { "type": "string" },
+                  "url": { "type": "string", "nullable": true },
+                  "foundedAt": { "type": "string", "nullable": true },
+                  "about": { "type": "string", "nullable": true },
+                  "numEmployees": { "type": "string", "nullable": true },
+                  "governmentNr": { "type": "string", "nullable": true },
+                  "sectorIds": {
+                    "type": "array",
+                    "items": { "type": "integer" },
+                    "nullable": true
+                  },
+                  "userEmail": { "type": "string", "nullable": true },
+                  "userPassword": { "format": "password", "type": "string", "nullable": true },
+                  "userPasswordConfirmation": {
+                    "format": "password",
+                    "type": "string",
+                    "nullable": true
+                  },
+                  "userFirstName": { "type": "string", "nullable": true },
+                  "userLastName": { "type": "string", "nullable": true },
+                  "facebook": { "type": "string", "nullable": true },
+                  "twitter": { "type": "string", "nullable": true },
+                  "instagram": { "type": "string", "nullable": true },
+                  "linkedin": { "type": "string", "nullable": true },
+                  "whatsapp": { "type": "string", "nullable": true }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/Company" } }
+            }
+          }
+        }
+      },
+      "get": {
+        "tags": ["companies"],
+        "summary": "Get one company.",
+        "parameters": [
+          { "name": "company", "in": "path", "required": true, "schema": { "type": "string" } }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/Company" } }
+            }
+          }
+        }
+      }
+    },
+    "/api/companies/{company}/complaint": {
+      "post": {
+        "tags": ["companies"],
+        "summary": "Create a complaint for a company.",
+        "parameters": [
+          { "name": "company", "in": "path", "required": true, "schema": { "type": "string" } }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": { "schema": { "$ref": "#/components/schemas/complaintRequest" } }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/Complaint" } }
+            }
+          }
+        }
+      }
+    },
+    "/api/companies/vat/{vatNr}": {
+      "get": {
+        "tags": ["companies"],
+        "summary": "Get one company by vat.",
+        "parameters": [
+          { "name": "vatNr", "in": "path", "required": true, "schema": { "type": "string" } }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/Company" } }
+            }
+          }
+        }
+      }
+    },
+    "/api/companies/{company}/reviews": {
+      "get": {
+        "tags": ["reviews"],
+        "summary": "List reviews for a company queryparams: \"?date=asc&rating=asc\".",
+        "parameters": [
+          { "name": "company", "in": "path", "required": true, "schema": { "type": "string" } }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "data": { "type": "array", "items": { "$ref": "#/components/schemas/Review" } }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/companies/{company}/contact": {
+      "post": {
+        "tags": ["companies"],
+        "summary": "Contact a company.",
+        "parameters": [
+          { "name": "company", "in": "path", "required": true, "schema": { "type": "string" } }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "name": { "type": "string" },
+                  "street": { "type": "string" },
+                  "streetNr": { "type": "string" },
+                  "postalCode": { "type": "string" },
+                  "city": { "type": "string" },
+                  "email": { "type": "string" },
+                  "phone": { "type": "string" },
+                  "message": { "type": "string" }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "message response",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/Message" } }
+            }
+          }
+        }
+      }
+    },
+    "/api/companies/{company}/realisations": {
+      "get": {
+        "tags": ["realisation"],
+        "summary": "List realisations for a company.",
+        "parameters": [
+          { "name": "company", "in": "path", "required": true, "schema": { "type": "string" } }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": { "$ref": "#/components/schemas/Realisation" }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/companies": {
+      "post": {
+        "tags": ["companies"],
+        "summary": "Create a company.",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "name": { "type": "string" },
+                  "street": { "type": "string" },
+                  "streetNr": { "type": "string" },
+                  "postalCode": { "type": "string" },
+                  "city": { "type": "string" },
+                  "country": { "type": "string", "maxLength": 3, "minLength": 2 },
+                  "latitude": { "type": "number", "nullable": true },
+                  "longitude": { "type": "number", "nullable": true },
+                  "vat": { "type": "string", "nullable": true },
+                  "email": { "type": "string", "nullable": true },
+                  "phone": { "type": "string", "nullable": true },
+                  "mobile": { "type": "string" },
+                  "url": { "type": "string", "nullable": true },
+                  "foundedAt": { "type": "string", "nullable": true },
+                  "about": { "type": "string", "nullable": true },
+                  "numEmployees": { "type": "string", "nullable": true },
+                  "governmentNr": { "type": "string", "nullable": true },
+                  "sectorIds": {
+                    "type": "array",
+                    "items": { "type": "integer" },
+                    "nullable": true
+                  },
+                  "userEmail": { "type": "string", "nullable": true },
+                  "userPassword": { "format": "password", "type": "string", "nullable": true },
+                  "userPasswordConfirmation": {
+                    "format": "password",
+                    "type": "string",
+                    "nullable": true
+                  },
+                  "userFirstName": { "type": "string", "nullable": true },
+                  "userLastName": { "type": "string", "nullable": true },
+                  "facebook": { "type": "string", "nullable": true },
+                  "twitter": { "type": "string", "nullable": true },
+                  "instagram": { "type": "string", "nullable": true },
+                  "linkedin": { "type": "string", "nullable": true },
+                  "whatsapp": { "type": "string", "nullable": true }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": { "schema": { "$ref": "#/components/schemas/Company" } }
+            }
+          }
+        }
+      }
+    },
+    "/api/companies/{company}/score": {
+      "get": {
+        "tags": ["companies"],
+        "summary": "Get scores",
+        "parameters": [
+          { "name": "company", "in": "path", "required": true, "schema": { "type": "string" } }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "data": {
+                      "type": "object",
+                      "properties": {
+                        "score": { "type": "number", "maximum": 10, "minimum": 0 },
+                        "distribution": {
+                          "type": "object",
+                          "properties": {
+                            "1": { "type": "string" },
+                            "2": { "type": "string" },
+                            "3": { "type": "string" },
+                            "4": { "type": "string" },
+                            "5": { "type": "string" }
+                          }
+                        },
+                        "total": { "type": "string" }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/tag": {
+      "get": {
+        "tags": ["tags"],
+        "summary": "List all tags",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": { "type": "array", "items": { "$ref": "#/components/schemas/Tag" } }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/tag/couple": {
+      "post": {
+        "tags": ["tags"],
+        "summary": "Couple tags",
+        "requestBody": {
+          "description": "Couple Tags",
+          "content": {
+            "application/json": { "schema": { "$ref": "#/components/schemas/tagsCouple" } }
+          }
+        },
+        "responses": { "200": { "description": "OK" } }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "CodeVerification": {
+        "type": "object",
+        "properties": { "email": { "type": "string" }, "code": { "type": "string" } }
+      },
+      "ForgotPasswordRequest": {
+        "type": "object",
+        "properties": { "email": { "format": "email", "type": "string" } }
+      },
+      "RegisterRequest": {
+        "type": "object",
+        "properties": {
+          "email": { "format": "email", "type": "string" },
+          "password": { "type": "string" },
+          "passwordConfirmation": { "type": "string" },
+          "firstName": { "type": "string" },
+          "lastName": { "type": "string" },
+          "screenName": { "type": "string" },
+          "newsletterSubscription": { "type": "boolean" }
+        }
+      },
+      "ResetPasswordRequest": {
+        "type": "object",
+        "properties": {
+          "email": { "format": "email", "type": "string" },
+          "token": { "type": "string" },
+          "password": { "type": "string", "minLength": 8 },
+          "passwordConfirmation": { "type": "string", "minLength": 8 }
+        }
+      },
+      "Token": {
+        "type": "object",
+        "properties": {
+          "accessToken": { "default": "", "type": "string" },
+          "tokenType": { "default": "bearer", "type": "string" },
+          "expiresIn": { "default": 60, "type": "integer" }
+        }
+      },
+      "User": {
+        "type": "object",
+        "properties": {
+          "data": {
+            "type": "object",
+            "properties": {
+              "id": { "default": "", "type": "integer" },
+              "firstName": { "default": "", "type": "string" },
+              "lastName": { "default": "", "type": "string" },
+              "screenName": { "default": "", "type": "string" },
+              "email": { "default": "", "type": "string" },
+              "newsletterSubscription": { "default": "", "type": "boolean" },
+              "emailVerifiedAt": { "format": "date-time", "type": "string", "nullable": true },
+              "privacyApprovedAt": { "format": "date-time", "type": "string", "nullable": true },
+              "createdAt": { "format": "date-time", "type": "string" },
+              "updatedAt": { "format": "date-time", "type": "string" },
+              "relations": {
+                "type": "object",
+                "properties": { "company": { "$ref": "#/components/schemas/Company" } },
+                "nullable": true
+              }
+            }
+          }
+        }
+      },
+      "PhoneVerification": {
+        "type": "object",
+        "properties": { "email": { "type": "string" }, "code": { "type": "integer" } }
+      },
+      "EmptyUser": {
+        "type": "object",
+        "properties": {
+          "data": {
+            "type": "object",
+            "properties": {
+              "id": { "default": "", "type": "integer" },
+              "firstName": { "default": "", "type": "string" },
+              "lastName": { "default": "", "type": "string" },
+              "screenName": { "default": "", "type": "string" },
+              "email": { "default": "", "type": "string" },
+              "newsletterSubscription": { "default": "", "type": "boolean" },
+              "emailVerifiedAt": { "format": "date-time", "type": "string" },
+              "privacyApprovedAt": { "format": "date-time", "type": "string", "nullable": true },
+              "createdAt": { "format": "date-time", "type": "string" },
+              "updatedAt": { "format": "date-time", "type": "string" },
+              "relations": { "type": "object", "nullable": true }
+            }
+          }
+        }
+      },
+      "Message": {
+        "type": "object",
+        "properties": { "message": { "default": "", "type": "string" } }
+      },
+      "LoginRequest": {
+        "type": "object",
+        "properties": { "email": { "type": "string" }, "password": { "type": "string" } }
+      },
+      "JobPage": {
+        "type": "object",
+        "properties": {
+          "data": {
+            "type": "object",
+            "properties": {
+              "id": { "type": "integer" },
+              "title": { "type": "string" },
+              "slug": { "type": "string" },
+              "flexibleContent": { "type": "array", "items": { "type": "object" } },
+              "createdAt": { "format": "date-time", "type": "string" },
+              "updatedAt": { "format": "date-time", "type": "string" }
+            }
+          }
+        }
+      },
+      "BasicPage": {
+        "type": "object",
+        "properties": {
+          "data": {
+            "type": "object",
+            "properties": {
+              "id": { "type": "integer" },
+              "title": { "type": "string" },
+              "slug": { "type": "string" },
+              "uid": { "type": "string" },
+              "flexibleContent": { "type": "array", "items": { "type": "object" } },
+              "createdAt": { "format": "date-time", "type": "string" },
+              "updatedAt": { "format": "date-time", "type": "string" }
+            }
+          }
+        }
+      },
+      "UserHasReadSchema": {
+        "type": "object",
+        "properties": {
+          "modelType": { "description": "one of: review", "type": "string" },
+          "modelId": { "type": "integer" }
+        }
+      },
+      "MediaResponse": {
+        "type": "object",
+        "properties": {
+          "data": {
+            "type": "object",
+            "properties": {
+              "id": { "type": "integer" },
+              "original": { "default": "", "type": "string" },
+              "fileName": { "default": "", "type": "string" },
+              "conversions": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": { "type": { "type": "string" }, "url": { "type": "string" } }
+                },
+                "nullable": true
+              }
+            }
+          }
+        }
+      },
+      "fileCreation": {
+        "type": "object",
+        "properties": {
+          "file": { "type": "string" },
+          "collection": { "description": "one of:vca,iso9001,iso14001,atg", "type": "string" },
+          "model": { "description": "one of: company", "type": "string" },
+          "modelId": { "type": "integer" }
+        }
+      },
+      "ImageCreation": {
+        "type": "object",
+        "properties": {
+          "photo": { "type": "string" },
+          "collection": { "description": "logo, cover, images", "type": "string" },
+          "model": { "description": "realisation, company, review", "type": "string" }
+        }
+      },
+      "Complaint": {
+        "type": "object",
+        "properties": {
+          "data": {
+            "type": "object",
+            "properties": {
+              "id": { "type": "integer" },
+              "firstName": { "type": "string", "nullable": false },
+              "lastName": { "type": "string", "nullable": false },
+              "email": { "type": "string", "nullable": false },
+              "message": { "type": "string", "nullable": false },
+              "status": { "default": "pending", "type": "string" },
+              "createdAt": { "format": "date-time", "type": "string" },
+              "updatedAt": { "format": "date-time", "type": "string" }
+            }
+          }
+        }
+      },
+      "complaintRequest": {
+        "type": "object",
+        "properties": {
+          "firstName": { "type": "string" },
+          "lastName": { "type": "string" },
+          "email": { "type": "string" },
+          "message": { "type": "string" }
+        }
+      },
+      "Subscription": {
+        "type": "object",
+        "properties": {
+          "data": {
+            "type": "object",
+            "properties": {
+              "id": { "type": "integer" },
+              "name": { "type": "string" },
+              "uid": { "type": "string" },
+              "price": { "default": 0, "type": "integer" },
+              "stripeId": { "type": "string" },
+              "features": {
+                "type": "object",
+                "properties": {
+                  "realisationsNr": { "default": 0, "type": "integer" },
+                  "realisationsInviteNr": { "default": 0, "type": "integer" },
+                  "mobileInviteNr": { "default": 0, "type": "integer" },
+                  "reviewRespondNr": { "default": 0, "type": "integer" },
+                  "widgets": { "default": false, "type": "boolean" },
+                  "brandedReview": { "default": false, "type": "boolean" },
+                  "socialShare": { "default": false, "type": "boolean" },
+                  "offlinePromo": { "default": false, "type": "boolean" },
+                  "trustManager": { "default": false, "type": "boolean" }
+                }
+              },
+              "isPublic": { "default": false, "type": "boolean" },
+              "createdAt": { "format": "date-time", "type": "string" },
+              "updatedAt": { "format": "date-time", "type": "string" }
+            }
+          }
+        }
+      },
+      "Plan": {
+        "type": "object",
+        "properties": {
+          "data": {
+            "type": "object",
+            "properties": {
+              "id": { "type": "integer" },
+              "name": { "type": "string" },
+              "uid": { "type": "string" },
+              "price": { "default": 0, "type": "integer" },
+              "stripeId": { "type": "string" },
+              "features": {
+                "type": "object",
+                "properties": {
+                  "featRealisationsNr": { "type": "integer" },
+                  "featRealisationsInviteNr": { "type": "integer" },
+                  "featMobileInviteNr": { "type": "integer" },
+                  "featReviewRespondNr": { "type": "integer" },
+                  "featWidgets": { "default": false, "type": "boolean" },
+                  "featBrandedReview": { "default": false, "type": "boolean" },
+                  "featSocialShare": { "default": false, "type": "boolean" },
+                  "featOfflinePromo": { "default": false, "type": "boolean" },
+                  "featTrustManager": { "default": false, "type": "boolean" }
+                }
+              },
+              "isPublic": { "default": false, "type": "boolean" },
+              "createdAt": { "format": "date-time", "type": "string" },
+              "updatedAt": { "format": "date-time", "type": "string" }
+            }
+          }
+        }
+      },
+      "RealisationCreation": {
+        "type": "object",
+        "properties": {
+          "subtitle": { "type": "string" },
+          "title": { "type": "string" },
+          "body": { "type": "string" },
+          "companyId": { "type": "integer" },
+          "cover": { "type": "string", "nullable": true },
+          "sectorIds": { "type": "array", "items": { "type": "integer" } },
+          "images": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "id": { "type": "integer", "nullable": true },
+                "base64": { "type": "string" }
+              }
+            },
+            "nullable": true
+          }
+        }
+      },
+      "Realisation": {
+        "type": "object",
+        "properties": {
+          "data": {
+            "type": "object",
+            "properties": {
+              "id": { "type": "integer" },
+              "title": { "type": "string" },
+              "slug": { "type": "string" },
+              "body": { "type": "string" },
+              "subtitle": { "type": "string" },
+              "cover": { "$ref": "#/components/schemas/MediaResponse" },
+              "images": {
+                "type": "array",
+                "items": { "$ref": "#/components/schemas/MediaResponse" }
+              },
+              "relations": {
+                "type": "object",
+                "properties": {
+                  "sectors": { "type": "array", "items": { "$ref": "#/components/schemas/Sector" } }
+                },
+                "nullable": true
+              },
+              "createdAt": { "format": "date-time", "type": "string" },
+              "updatedAt": { "format": "date-time", "type": "string" }
+            }
+          }
+        }
+      },
+      "Feedback": {
+        "type": "object",
+        "properties": {
+          "data": {
+            "type": "object",
+            "properties": {
+              "id": { "type": "integer" },
+              "message": { "type": "string" },
+              "createdAt": { "format": "date-time", "type": "string" },
+              "updatedAt": { "format": "date-time", "type": "string" }
+            }
+          }
+        }
+      },
+      "ProConPoint": {
+        "type": "object",
+        "properties": {
+          "data": {
+            "type": "object",
+            "properties": {
+              "id": { "type": "integer" },
+              "title": { "type": "string" },
+              "type": { "description": "oneof: \"pro\" or \"con\"", "type": "string" },
+              "isOfficial": { "default": false, "type": "boolean" },
+              "createdAt": { "format": "date-time", "type": "string" },
+              "updatedAt": { "format": "date-time", "type": "string" }
+            }
+          }
+        }
+      },
+      "Review": {
+        "type": "object",
+        "properties": {
+          "data": {
+            "type": "object",
+            "properties": {
+              "id": { "type": "integer" },
+              "title": { "type": "string" },
+              "description": { "type": "string" },
+              "status": {
+                "description": "one of: pending,approved,complained,rejected,archived",
+                "type": "string"
+              },
+              "rating": { "default": 0, "type": "number" },
+              "screenName": { "type": "string" },
+              "firstName": { "type": "string" },
+              "lastName": { "type": "string" },
+              "email": { "type": "string" },
+              "isReadByUser": { "type": "boolean" },
+              "isFavorite": { "type": "boolean" },
+              "totalFeedbackCount": { "default": 0, "type": "integer" },
+              "relations": {
+                "type": "object",
+                "properties": {
+                  "company": { "$ref": "#/components/schemas/Company" },
+                  "tags": {
+                    "type": "array",
+                    "items": { "$ref": "#/components/schemas/Tag" },
+                    "nullable": true
+                  },
+                  "proConPoints": {
+                    "type": "array",
+                    "items": { "$ref": "#/components/schemas/ProConPoint" },
+                    "nullable": true
+                  },
+                  "sectors": {
+                    "type": "array",
+                    "items": { "$ref": "#/components/schemas/Sector" },
+                    "nullable": true
+                  },
+                  "feedback": { "$ref": "#/components/schemas/Feedback" }
+                },
+                "nullable": true
+              },
+              "images": {
+                "type": "array",
+                "items": { "$ref": "#/components/schemas/MediaResponse" }
+              },
+              "createdAt": { "format": "date-time", "type": "string" },
+              "updatedAt": { "format": "date-time", "type": "string" }
+            }
+          }
+        }
+      },
+      "sectorCouple": {
+        "type": "object",
+        "properties": { "modelType": { "type": "string" }, "modelId": { "type": "integer" } }
+      },
+      "Sector": {
+        "type": "object",
+        "properties": {
+          "data": {
+            "type": "object",
+            "properties": {
+              "id": { "type": "integer" },
+              "name": { "type": "string" },
+              "icon": { "type": "string", "nullable": true },
+              "slug": { "type": "string" },
+              "description": { "type": "string", "nullable": true },
+              "parentId": { "type": "integer", "nullable": true },
+              "descendants": {
+                "type": "array",
+                "items": { "description": "Sector Schema", "type": "object" }
+              },
+              "flexibleContent": { "type": "array", "items": { "type": "object" } },
+              "cover": { "$ref": "#/components/schemas/MediaResponse" },
+              "createdAt": { "format": "date-time", "type": "string" },
+              "updatedAt": { "format": "date-time", "type": "string" }
+            }
+          }
+        }
+      },
+      "tagsCouple": {
+        "type": "object",
+        "properties": {
+          "tags": { "type": "array", "items": { "type": "integer" } },
+          "modelType": { "type": "string" },
+          "modelId": { "type": "integer" }
+        }
+      },
+      "Tag": {
+        "type": "object",
+        "properties": {
+          "data": {
+            "type": "object",
+            "properties": {
+              "id": { "type": "integer" },
+              "name": { "type": "string" },
+              "slug": { "type": "string" },
+              "type": { "type": "string" },
+              "order_column": { "type": "integer" },
+              "createdAt": { "format": "date-time", "type": "string" },
+              "updatedAt": { "format": "date-time", "type": "string" }
+            }
+          }
+        }
+      },
+      "Company": {
+        "type": "object",
+        "properties": {
+          "data": {
+            "type": "object",
+            "properties": {
+              "id": { "type": "integer" },
+              "name": { "type": "string" },
+              "street": { "type": "string" },
+              "streetNr": { "type": "string" },
+              "postalCode": { "type": "string" },
+              "city": { "type": "string" },
+              "country": { "type": "string" },
+              "latitude": { "type": "string", "nullable": true },
+              "longitude": { "type": "string", "nullable": true },
+              "vat": { "type": "string", "nullable": true },
+              "email": { "type": "string", "nullable": true },
+              "phone": { "type": "string", "nullable": true },
+              "mobile": { "type": "string", "nullable": true },
+              "url": { "type": "string", "nullable": true },
+              "foundedAt": { "format": "date", "type": "string", "nullable": true },
+              "about": { "type": "string", "nullable": true },
+              "numEmployees": { "type": "integer", "nullable": true },
+              "governmentNr": { "type": "integer", "nullable": true },
+              "logo": { "$ref": "#/components/schemas/MediaResponse" },
+              "cover": { "$ref": "#/components/schemas/MediaResponse" },
+              "relations": {
+                "type": "object",
+                "properties": {
+                  "sectors": {
+                    "type": "array",
+                    "items": { "$ref": "#/components/schemas/Sector" }
+                  },
+                  "externalTags": {
+                    "type": "array",
+                    "items": { "$ref": "#/components/schemas/Tag" }
+                  },
+                  "recentRealisation": { "$ref": "#/components/schemas/Realisation" },
+                  "user": { "$ref": "#/components/schemas/EmptyUser" },
+                  "subscription": { "$ref": "#/components/schemas/Subscription" }
+                },
+                "nullable": true
+              },
+              "facebook": { "type": "string", "nullable": true },
+              "twitter": { "type": "string", "nullable": true },
+              "instagram": { "type": "string", "nullable": true },
+              "linkedin": { "type": "string", "nullable": true },
+              "whatsapp": { "type": "string", "nullable": true },
+              "vca": { "$ref": "#/components/schemas/MediaResponse" },
+              "iso9001": { "$ref": "#/components/schemas/MediaResponse" },
+              "iso14001": { "$ref": "#/components/schemas/MediaResponse" },
+              "atg": { "$ref": "#/components/schemas/MediaResponse" },
+              "createdAt": { "format": "date-time", "type": "string" },
+              "updatedAt": { "format": "date-time", "type": "string" },
+              "claimedAt": { "format": "date-time", "type": "string", "nullable": true }
+            }
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,98 @@
+[
+  { "source": "/en", "destination": "/", "locale": false },
+  { "source": "/en/terms-of-service", "destination": "/terms-of-service", "locale": false },
+  { "source": "/en/sectors", "destination": "/sectors", "locale": false },
+  { "source": "/en/cookies", "destination": "/cookies", "locale": false },
+  { "source": "/en/contact", "destination": "/contact", "locale": false },
+  { "source": "/en/jobs", "destination": "/jobs", "locale": false },
+  { "source": "/en/jobs/:slug", "destination": "/jobs/:slug", "locale": false },
+  { "source": "/en/about", "destination": "/about", "locale": false },
+  { "source": "/en/legal-advice", "destination": "/legal-advice", "locale": false },
+  { "source": "/en/privacy", "destination": "/privacy", "locale": false },
+  { "source": "/en/faq", "destination": "/faq", "locale": false },
+  { "source": "/en/assessment-policy", "destination": "/assessment-policy", "locale": false },
+  { "source": "/en/terms-use", "destination": "/terms-of-use", "locale": false },
+  { "source": "/en/write-reviews", "destination": "/write-review", "locale": false },
+  { "source": "/en/write-reviews/:slug", "destination": "/write-review/:slug", "locale": false },
+  {
+    "source": "/en/write-reviews/:slug/thanks",
+    "destination": "/write-review/:slug/thanks",
+    "locale": false
+  },
+  { "source": "/en/realizations", "destination": "/realizations", "locale": false },
+  { "source": "/en/add-company", "destination": "/add-company", "locale": false },
+  {
+    "source": "/en/add-company/thanks",
+    "destination": "/add-company/confirmation",
+    "locale": false
+  },
+  { "source": "/en/company", "destination": "/company", "locale": false },
+  { "source": "/en/company/:slug", "destination": "/company/:slug", "locale": false },
+  {
+    "source": "/en/company/:slug/reviews",
+    "destination": "/company/:slug/reviews",
+    "locale": false
+  },
+  {
+    "source": "/en/company/:slug/reviews/:rid",
+    "destination": "/company/:slug/review/:rid",
+    "locale": false
+  },
+  { "source": "/en/company/:slug/about", "destination": "/company/:slug/about", "locale": false },
+  {
+    "source": "/en/company/:slug/realizations",
+    "destination": "/company/:slug/realizations",
+    "locale": false
+  },
+  {
+    "source": "/en/company/:slug/realizations/:rslug",
+    "destination": "/company/:slug/realization/:rslug",
+    "locale": false
+  },
+  {
+    "source": "/en/company/:slug/contact",
+    "destination": "/company/:slug/contact",
+    "locale": false
+  },
+  { "source": "/en/company-search", "destination": "/company-search", "locale": false },
+  {
+    "source": "/en/sectors/:sector/:subsector",
+    "destination": "/sectors/:sector/:subsector",
+    "locale": false
+  },
+  {
+    "source": "/en/locality/:locality/:sector",
+    "destination": "/locality/:locality/:sector",
+    "locale": false
+  },
+  {
+    "source": "/en/housing-advice",
+    "destination": "/housing-advice",
+    "locale": false
+  },
+  {
+    "source": "/en/housing-advice/sectors/:sector",
+    "destination": "/housing-advice/sectors/:sector",
+    "locale": false
+  },
+  {
+    "source": "/en/realizations",
+    "destination": "/realizations",
+    "locale": false
+  },
+  {
+    "source": "/en/realizations/sectors/:sector",
+    "destination": "/realizations/sectors/:sector",
+    "locale": false
+  },
+  {
+    "source": "/en/housing-advice/articles/:article",
+    "destination": "/housing-advice/articles/:article",
+    "locale": false
+  },
+  {
+    "source": "/en/housing-advice/preview/:uid",
+    "destination": "/housing-advice/preview/:uid",
+    "locale": false
+  }
+]

@@ -1,0 +1,18 @@
+import React, { FC } from 'react';
+import styled from 'styled-components';
+
+<% var wrapper = 'Styled' + className; %>
+
+export type <%= className %>Props = {};
+
+const Styled<%= className %> = styled.div`
+  color: pink;
+`;
+
+export const <%= className %>: FC<<%= className %>Props> = ({}) => {
+  return (
+    <<%= wrapper %>>
+      <h1>Welcome to <%= name %>!</h1>
+    </<%= wrapper %>>
+  );
+};
